@@ -1,0 +1,16 @@
+{
+  "name": "wa-chat-counter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi lokal untuk menghitung jumlah nomor WhatsApp dan rentang tanggal chat.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "whatsapp-web.js": "^1.34.1"
+  }
+}

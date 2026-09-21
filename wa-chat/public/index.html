@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WA Chat Summary</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">LOCAL WHATSAPP SUMMARY</p>
+          <h1>WA Chat Summary</h1>
+          <p class="subtitle">Pilih rentang tanggal, lalu hitung berapa nomor pribadi yang memiliki chat di dalam rentang tersebut.</p>
+        </div>
+        <div id="connectionBadge" class="badge badge-muted">Menghubungkan…</div>
+      </header>
+
+      <section class="grid top-grid">
+        <article class="card login-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">01 · LOGIN</p>
+              <h2>Hubungkan WhatsApp</h2>
+            </div>
+          </div>
+          <div id="loginContent" class="login-content">
+            <div class="qr-placeholder"><span class="spinner"></span><p>Menyiapkan WhatsApp Web…</p></div>
+          </div>
+          <p id="loginHint" class="muted">Sesi login disimpan lokal agar tidak perlu scan QR setiap kali membuka aplikasi.</p>
+        </article>
+
+        <article class="card action-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">02 · SCAN</p>
+              <h2>Hitung ringkasan</h2>
+            </div>
+            <span id="scanPercent" class="percent">0%</span>
+          </div>
+          <p class="scan-description">Aplikasi menghitung nomor pribadi unik yang memiliki minimal satu pesan di antara dua tanggal pilihan Anda.</p>
+          <div class="date-fields">
+            <label>
+              <span>Tanggal mulai</span>
+              <input id="startDate" type="date" autocomplete="off" />
+            </label>
+            <label>
+              <span>Tanggal akhir</span>
+              <input id="endDate" type="date" autocomplete="off" />
+            </label>
+          </div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+          <div class="progress-meta"><span id="progressLabel">Pilih rentang tanggal</span><span id="chatCounter">0 / 0 nomor</span></div>
+          <button id="scanButton" class="primary-button" disabled>Mulai hitung</button>
+          <p id="scanError" class="error-text"></p>
+        </article>
+      </section>
+
+      <section class="card results-card">
+        <div class="results-heading">
+          <div>
+            <p class="section-kicker">03 · HASIL</p>
+            <h2>Ringkasan akun</h2>
+          </div>
+          <div class="export-actions">
+            <a id="jsonExport" class="secondary-button disabled" href="/api/export?format=json">JSON</a>
+            <a id="csvExport" class="secondary-button disabled" href="/api/export?format=csv">CSV</a>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item summary-highlight">
+            <span id="numberCount" class="summary-value">0</span>
+            <span class="summary-label">nomor pribadi di dalam rentang</span>
+          </div>
+          <div class="summary-item">
+            <span id="startDateResult" class="summary-date">—</span>
+            <span class="summary-label">tanggal mulai dipilih</span>
+          </div>
+          <div class="summary-item">
+            <span id="endDateResult" class="summary-date">—</span>
+            <span class="summary-label">tanggal akhir dipilih</span>
+          </div>
+        </div>
+
+        <div class="scan-note">
+          <span id="scanInfo">Belum ada data pemindaian.</span>
+          <span>Waktu ditampilkan mengikuti zona waktu perangkat.</span>
+        </div>
+      </section>
+
+      <footer>
+        <span>Berjalan lokal di komputer ini.</span>
+        <span>Isi pesan tidak disimpan.</span>
+      </footer>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
